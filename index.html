@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veilrein — Wiki</title>
   <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/council-strip.css">
 </head>
 <body>
 
@@ -26,91 +27,87 @@
   </header>
 
 
-    <!-- ---------- MAIN CONTENT ---------- -->
-    <main class="content">
+  <!-- ---------- MAIN CONTENT ---------- -->
+  <main class="content">
 
-      <div class="hero-image">
-        <img src="PUT_YOUR_IMAGE_URL_HERE.png" alt="Veilrein">
-      </div>
+    <div class="hero-image">
+      <img src="PUT_YOUR_IMAGE_URL_HERE.png" alt="Veilrein">
+    </div>
 
-      <!-- DESCRIPTION -->
-      <p class="description">
-        Wtf.
-      </p>
+    <!-- DESCRIPTION -->
+    <p class="description">
+      Wtf.
+    </p>
 
-      <!-- CURRENT COUNCIL -->
-      <h2 class="section-title">Current Council</h2>
-      <div class="council-grid">
+    <!-- CURRENT COUNCIL -->
+    <h2 class="section-title">Current Council</h2>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Architect</a></div>
+    <!-- The scroll container. On narrow screens this scrolls left/right
+         instead of squashing or clipping the cards. -->
+    <div class="council-scroll">
+      <div class="council-track">
+
+        <!-- Each card gets a theme class: theme-architect, theme-wanderer, etc. -->
+        <a class="councillor theme-architect" href="../veilrein/council/cyn.html">
+          <div class="title">The Architect</div>
           <div class="councillor-photo">
-            <img src="images/wwyrim2.png" alt="">
+            <img src="images/wwyrim2.png" alt="Wwyrim">
           </div>
-          <div class="councillor-name"><a href="../Veilrein/council/cyn.html">Wwyrim</a></div>
-          <div class="description">Oversees the design and development of the city, including public
-        works, architecture, infrastructure, and long-term urban planning.</div>
-        </div>
+          <div class="councillor-name">Cyn</div>
+        </a>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Wanderer</a></div>
+        <a class="councillor theme-wanderer" href="#">
+          <div class="title">The Wanderer</div>
           <div class="councillor-photo">
-            <img src="images/zero.png" alt="">
+            <img src="images/zero.png" alt="Zero">
           </div>
-          <div class="councillor-name"><a href="">Zero</a></div>
-          <div class="description">Insert description here.</div>
-        </div>
+          <div class="councillor-name">Zero</div>
+        </a>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Shaman</a></div>
+        <a class="councillor theme-shaman" href="#">
+          <div class="title">The Shaman</div>
           <div class="councillor-photo">
-            <img src="images/shaman.jpg" alt="">
+            <img src="images/shaman.jpg" alt="Spectra">
           </div>
-          <div class="councillor-name"><a href="">Sepctra</a></div>
-          <div class="description">Insert description here.</div>
-        </div>
+          <div class="councillor-name">Spectra</div>
+        </a>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Beast</a></div>
+        <a class="councillor theme-beast" href="#">
+          <div class="title">The Beast</div>
           <div class="councillor-photo">
-            <img src="images/delevan.png" alt="">
+            <img src="images/delevan.png" alt="Delevan">
           </div>
-          <div class="councillor-name"><a href="">Delevan</a></div>
-          <div class="description">Insert description here.</div>
-        </div>
+          <div class="councillor-name">Delevan</div>
+        </a>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Witch</a></div>
+        <a class="councillor theme-witch" href="#">
+          <div class="title">The Witch</div>
           <div class="councillor-photo">
-            <img src="images/witch.jpg" alt="">
+            <img src="images/witch.jpg" alt="Cyn">
           </div>
-          <div class="councillor-name"><a href="">Cyn</a></div>
-          <div class="description">Insert description here.</div>
-        </div>
+          <div class="councillor-name">Cyn</div>
+        </a>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Reaper</a></div>
+        <a class="councillor theme-reaper" href="#">
+          <div class="title">The Reaper</div>
           <div class="councillor-photo">
             <img src="images/reaper.jpg" alt="">
           </div>
-          <div class="councillor-name"><a href="">Name</a></div>
-          <div class="description">Insert description here.</div>
-        </div>
+          <div class="councillor-name">Name</div>
+        </a>
 
-        <div class="councillor">
-            <div class="title"><a href="">The Hunter</a></div>
+        <a class="councillor theme-hunter" href="#">
+          <div class="title">The Hunter</div>
           <div class="councillor-photo">
             <img src="images/hunter.jpg" alt="">
           </div>
-          <div class="councillor-name"><a href="">Name</a></div>
-          <div class="description">Insert description here.</div>
-        </div>
+          <div class="councillor-name">Name</div>
+        </a>
 
       </div>
+    </div>
 
-    </main>
-
-  </div>
+  </main>
 
 </body>
 </html>

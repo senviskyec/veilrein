@@ -152,7 +152,7 @@ body {
 
 /* portrait */
 .councillor-photo {
-  width: 80%;
+  width: 90%;
   aspect-ratio: 1 / 1;
   border: 1px solid var(--border-hi);
   border-radius: 8px;
@@ -163,8 +163,8 @@ body {
 
 .councillor-photo img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   object-fit: cover;
 }
 

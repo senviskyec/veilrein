@@ -1,0 +1,217 @@
+/* =====================================================================
+   COUNCIL STRIP
+   Horizontal, scrollable row of councillor cards.
+   On wide screens all cards fit; when the viewport narrows the row
+   scrolls left/right instead of clipping or squashing the cards.
+   ===================================================================== */
+
+.section-title {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border-hi);
+  padding-bottom: 8px;
+  margin: 40px 0 20px;
+}
+
+
+/* ----- the scroll viewport ----- */
+.council-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 14px;                 /* room for the scrollbar */
+
+  /* momentum + snap so cards line up nicely when you scroll */
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* themed scrollbar (WebKit) */
+.council-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+.council-scroll::-webkit-scrollbar-track {
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.council-scroll::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 6px;
+}
+/* Firefox */
+.council-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--panel);
+}
+
+
+/* ----- the row itself ----- */
+.council-track {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  width: max-content;
+  min-width: 100%;
+  padding: 6px 2px;
+}
+
+
+/* =====================================================================
+   BASE CARD
+   ===================================================================== */
+.councillor {
+  scroll-snap-align: start;
+  flex: 0 0 auto;              /* never shrink — this is what enables scroll */
+  width: 240px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  background: var(--panel);
+  border: 1px solid var(--border-hi);
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.councillor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .45);
+  border-color: var(--gold);
+}
+
+.councillor .title {
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: .05em;
+  color: var(--gold);
+  padding: 10px 8px;
+  background: #35291c;
+}
+
+.councillor-photo {
+  padding: 12px;
+}
+
+.councillor-photo img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  padding: 4px;
+  border: 1px solid var(--border-hi);
+}
+
+.councillor-name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 8px 8px 16px;
+}
+
+
+/* =====================================================================
+   PER-TITLE THEMING
+   Each theme tweaks border, accent color, and the framed area
+   (title + photo + name) as you asked. Add/adjust colors to taste.
+   ===================================================================== */
+
+/* ---- THE ARCHITECT — cog / gear frame ---- */
+.theme-architect {
+  --accent: #c9a24b;
+  border: 2px solid var(--accent);
+  position: relative;
+}
+.theme-architect .title,
+.theme-architect .councillor-name {
+  color: var(--accent);
+}
+.theme-architect .councillor-photo img {
+  border: 2px solid var(--accent);
+}
+/* the cog band: a repeating gear glyph framing the card */
+.theme-architect::before,
+.theme-architect::after {
+  content: "⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙";
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--accent);
+  opacity: .6;
+  pointer-events: none;
+}
+.theme-architect::before { top: 3px; }
+.theme-architect::after  { bottom: 3px; }
+.theme-architect .title    { padding-top: 22px; }   /* clear the top cogs */
+.theme-architect .councillor-name { padding-bottom: 24px; } /* clear bottom cogs */
+
+
+/* ---- THE WANDERER — dashed, dusty ---- */
+.theme-wanderer {
+  --accent: #9fb3c8;
+  border: 2px dashed var(--accent);
+}
+.theme-wanderer .title,
+.theme-wanderer .councillor-name { color: var(--accent); }
+.theme-wanderer .councillor-photo img { border-color: var(--accent); }
+
+
+/* ---- THE SHAMAN — green, organic ---- */
+.theme-shaman {
+  --accent: #6fae7a;
+  border: 2px solid var(--accent);
+}
+.theme-shaman .title,
+.theme-shaman .councillor-name { color: var(--accent); }
+.theme-shaman .councillor-photo img { border-color: var(--accent); }
+
+
+/* ---- THE BEAST — heavy red frame ---- */
+.theme-beast {
+  --accent: #b04a3a;
+  border: 3px solid var(--accent);
+}
+.theme-beast .title { background: #2c1512; }
+.theme-beast .title,
+.theme-beast .councillor-name { color: var(--accent); }
+.theme-beast .councillor-photo img { border-color: var(--accent); }
+
+
+/* ---- THE WITCH — purple, occult ---- */
+.theme-witch {
+  --accent: #9a6fc0;
+  border: 2px solid var(--accent);
+}
+.theme-witch .title { background: #251830; }
+.theme-witch .title,
+.theme-witch .councillor-name { color: var(--accent); }
+.theme-witch .councillor-photo img { border-color: var(--accent); }
+
+
+/* ---- THE REAPER — bone / grey ---- */
+.theme-reaper {
+  --accent: #b9b9b0;
+  border: 2px solid var(--accent);
+}
+.theme-reaper .title { background: #1c1c1c; }
+.theme-reaper .title,
+.theme-reaper .councillor-name { color: var(--accent); }
+.theme-reaper .councillor-photo img { border-color: var(--accent); }
+
+
+/* ---- THE HUNTER — forest / bronze ---- */
+.theme-hunter {
+  --accent: #a8843f;
+  border: 2px solid var(--accent);
+}
+.theme-hunter .title,
+.theme-hunter .councillor-name { color: var(--accent); }
+.theme-hunter .councillor-photo img { border-color: var(--accent); }

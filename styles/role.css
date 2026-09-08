@@ -1,0 +1,216 @@
+/* =====================================================================
+   ROLE PAGE  (e.g. architect.html)
+   A page ABOUT a council seat, not about a person.
+   Base layout + a theming layer chosen by the body class,
+   e.g. <body class="theme-architect">, so all 7 role pages
+   can share this one file.
+   ===================================================================== */
+
+
+/* ---------- fallback accent so an un-themed page still renders ---------- */
+body { --accent: var(--gold); }
+
+
+/* ===================== WIKI PAGE ===================== */
+.wiki-page {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 40px 30px 100px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 45px;
+
+  align-items: start;
+}
+
+
+/* ===================== ARTICLE ===================== */
+.wiki-article { min-width: 0; }
+
+.article-header {
+  border-bottom: 1px solid var(--border-hi);
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+}
+
+.article-header h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.article-subtitle {
+  margin-top: 2px;
+  font-family: var(--display);
+  font-size: 17px;
+  color: var(--accent);            /* themed */
+  letter-spacing: .06em;
+}
+
+
+/* ===================== INTRO ===================== */
+.lead {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 30px;
+}
+
+
+/* ===================== HEADINGS ===================== */
+.wiki-article h2 {
+  font-family: var(--display);
+  font-size: 27px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 42px;
+  margin-bottom: 15px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border-hi);
+}
+
+.wiki-article p {
+  max-width: 75ch;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.wiki-article ul {
+  max-width: 75ch;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.wiki-article a { color: var(--link); }
+
+
+/* ===================== CONTENTS ===================== */
+.contents {
+  width: 300px;
+  margin: 30px 0;
+  border: 1px solid var(--border-hi);
+  background: var(--panel);
+}
+
+.contents-header {
+  padding: 10px 15px;
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-hi);
+  color: var(--ink);
+}
+
+.contents ol { margin: 0; padding: 12px 20px 12px 38px; }
+.contents li { margin: 5px 0; color: var(--ink-soft); }
+.contents a { color: var(--ink); text-decoration: none; }
+.contents a:hover { color: var(--accent); }     /* themed */
+
+
+/* ===================== INFOBOX ===================== */
+.role-infobox {
+  border: 2px solid var(--accent);   /* themed frame */
+  background: var(--panel);
+  width: 100%;
+  text-align: left;
+}
+
+.infobox-name {
+  padding: 10px;
+  background: #35291c;
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--accent);              /* themed */
+}
+
+.infobox-title {
+  padding: 7px 10px;
+  font-family: var(--display);
+  font-size: 16px;
+  text-align: center;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--border-hi);
+}
+
+.infobox-image { width: 100%; padding: 15px; text-align: center; }
+
+.infobox-image img {
+  display: block;
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border: 1px solid var(--accent);   /* themed */
+}
+
+.infobox-section {
+  padding: 9px;
+  background: #35291c;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--accent);              /* themed */
+}
+
+.infobox-row {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.infobox-row strong { color: var(--ink); }
+.infobox-row span   { color: var(--ink-soft); }
+.infobox-row a      { color: var(--accent); text-decoration: none; }
+.infobox-row a:hover { text-decoration: underline; }
+
+
+/* =====================================================================
+   THEMES — set --accent per seat, plus any extra flourishes.
+   Mirrors the strip / councillor themes so the site stays cohesive.
+   ===================================================================== */
+body.theme-architect { --accent: #c9a24b; }
+body.theme-wanderer  { --accent: #9fb3c8; }
+body.theme-shaman    { --accent: #6fae7a; }
+body.theme-beast     { --accent: #b04a3a; }
+body.theme-witch     { --accent: #9a6fc0; }
+body.theme-reaper    { --accent: #b9b9b0; }
+body.theme-hunter    { --accent: #a8843f; }
+
+
+/* ---- Architect flourish: cog band above the infobox name ---- */
+body.theme-architect .infobox-name::before {
+  content: "⚙ ⚙ ⚙ ⚙ ⚙ ⚙";
+  display: block;
+  font-size: 12px;
+  letter-spacing: 4px;
+  opacity: .55;
+  margin-bottom: 4px;
+}
+
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 850px) {
+  .wiki-page { grid-template-columns: 1fr; }
+  .role-infobox {
+    max-width: 450px;
+    margin: 0 auto;
+    grid-row: 1;
+  }
+  .wiki-article { grid-row: 2; }
+}
+
+@media (max-width: 500px) {
+  .wiki-page { padding: 25px 15px 60px; }
+  .article-header h1 { font-size: 34px; }
+  .contents { width: 100%; }
+}
