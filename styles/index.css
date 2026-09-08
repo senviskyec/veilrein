@@ -1,0 +1,194 @@
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@500;600;700&display=swap');
+
+:root {
+  --bg:        #17120d;   /* deep warm brown-black */
+  --panel:     #241c14;   /* cards / panels */
+  --rail:      #211913;   /* sidebar */
+  --rail-glow: #4a3116;   /* amber glow at bottom of sidebar */
+
+  --border:    #3d2f20;
+  --border-hi: #5c4428;
+
+  --gold:      #e6bd6f;   /* section headers */
+  --brass:     #b08542;
+  --link:      #d98c4a;   /* orange links (top nav) */
+
+  --ink:       #ece3d2;   /* main white-ish text */
+  --ink-soft:  #c4b7a0;
+  --ink-mute:  #8f8069;
+
+  --serif:   "EB Garamond", Georgia, serif;
+  --display: "Cinzel", Georgia, serif;
+
+  --maxw: 1220px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: gray;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================== TOP BAR ===================== */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 62px;
+  padding: 0 26px;
+  background: #1c150e;
+  border-bottom: 1px solid var(--border-hi);
+}
+
+.brand-text {
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: .04em;
+  color: var(--ink);
+}
+
+.brand-text span { color: var(--gold); }
+
+.topnav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.topnav a {
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-size: 16px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.topnav a:hover { color: var(--ink); }
+.topnav a.active { background: #35291c; color: var(--gold); }
+
+/* Layout stuff */
+.shell {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 26px 22px 80px;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 34px;
+}
+
+
+/* Main page
+.content { min-width: 0; }
+
+/* hero image at top */
+.hero-image {
+  width: 100%;
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+  margin-bottom: 24px;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* description */
+.description {
+  font-size: 19px;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 70ch;
+  margin: 0 0 36px;
+}
+
+/* section title */
+.section-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--ink);
+  margin: 0 0 20px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-hi);
+}
+
+/* council grid */
+.council-grid {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 18px;
+  max-width: 900px;
+}
+
+.councillor {
+  flex: 0 0 120px;
+  text-align: center;
+}
+
+/* faction title */
+.councillor-title {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+/* portrait */
+.councillor-photo {
+  width: 80%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--panel);
+  margin: 0 auto 10px;
+}
+
+.councillor-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* councillor name */
+.councillor-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+
+/* faction description */
+.councillor-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; }
+  .topnav { display: none; }
+}
